@@ -1,0 +1,41 @@
+<!-- menu_list.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu List</title>
+    <!-- Include Font Awesome CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+    <h1>Menu List</h1>
+    <a href="{% url 'resturant:add_ingredient'%}">Add Ingredient</a>
+    <div class="container">
+        
+        <table class="table table-bordered">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Name</th>
+                    <th>Quantity</th>
+                    <th>Actions</th> <!-- Add column for actions -->
+                </tr>
+            </thead>
+            <tbody>
+                {% for menu in list %}
+                <tr>
+                    <td>{{ menu.name }}</td>
+                    <td>{{ menu.available_qty }}</td>
+                    <td>
+                        <!-- Edit icon -->
+                        <a href="{% url 'resturant:edit_ingredient' menu.id %}"><i class="fas fa-edit"></i></a>
+                        <!-- Delete icon -->
+                        <a href="{% url 'resturant:delete_menu' menu.id %}"><i class="fas fa-trash"></i></a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
