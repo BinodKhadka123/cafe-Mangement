@@ -1,0 +1,16 @@
+<!-- set_recipe.html -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Set Recipe for Food Item</title>
+</head>
+<body>
+    <h1>Set Recipe for {{ food_item.name }}</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Save</button>
+    </form>
+</body>
+</html>

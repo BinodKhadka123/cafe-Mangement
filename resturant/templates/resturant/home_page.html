@@ -1,2 +1,61 @@
-<a href="{% url 'resturant:menu_list'%}">menu</a>
-<a href="{% url 'resturant:ingredient_list'%}">Ingredient</a>
+
+{% extends "resturant/includes/base.html" %}
+{% load static %}
+
+{% block content %}
+<section class="text-gray-600 body-font">
+    <div class="container px-5 py-24 mx-auto">
+        <div class="flex flex-wrap -m-4">
+            <div class="lg:w-1/4 md:w-1/2 p-4 w-full">
+                <a class="block relative h-48 rounded overflow-hidden">
+                <img alt="ecommerce" class="object-cover object-center w-full h-full block" src="{% static 'resturant/ingredient.jpg' %}">
+                </a>
+                <div class="mt-4">
+                    <a  href="{% url 'resturant:ingredient_list'%}">Ingredient</a>
+        
+                        <h3 class="text-gray-500 text-xs tracking-widest title-font mb-1">Inventory stock for Resturant</h3>
+                            <h2 class="text-gray-900 title-font text-lg font-medium">Check the inventory</h2>
+                    
+                </div>
+            </div>
+            <div class="lg:w-1/4 md:w-1/2 p-4 w-full">
+                <a class="block relative h-48 rounded overflow-hidden">
+                <img alt="ecommerce" class="object-cover object-center w-full h-full block" src="{% static 'resturant/food_order.jpg' %}">
+                </a>
+                <div class="mt-4">
+                    <a  href="{% url 'resturant:order_list'%}">Order</a>
+        
+                        <h3 class="text-gray-500 text-xs tracking-widest title-font mb-1">today income</h3>
+                            <h2 class="text-gray-900 title-font text-lg font-medium">lets make order big</h2>
+                    
+                </div>
+            </div>
+            <div class="lg:w-1/4 md:w-1/2 p-4 w-full">
+                <a class="block relative h-48 rounded overflow-hidden">
+                <img alt="ecommerce" class="object-cover object-center w-full h-full block" src="{% static 'resturant/food_recipe.jpg' %}">
+                </a>
+                <div class="mt-4">
+                    <a  href="{% url 'resturant:recipe_list'%}">Recipe</a>
+        
+                        <h3 class="text-gray-500 text-xs tracking-widest title-font mb-1">recipe for each food is diferent</h3>
+                            <h2 class="text-gray-900 title-font text-lg font-medium">Lets Innovate new recipe</h2>
+                    
+                </div>
+            </div>
+            <div class="lg:w-1/4 md:w-1/2 p-4 w-full">
+                <a class="block relative h-48 rounded overflow-hidden">
+                <img alt="ecommerce" class="object-cover object-center w-full h-full block" src="{% static 'resturant/foodmenu.jpg' %}">
+                </a>
+                <div class="mt-4">
+                    <a  href="{% url 'resturant:menu_list'%}">Menu</a>
+        
+                        <h3 class="text-gray-500 text-xs tracking-widest title-font mb-1">Today special Menu</h3>
+                            <h2 class="text-gray-900 title-font text-lg font-medium">sadeko Momo</h2>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

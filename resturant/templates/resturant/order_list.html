@@ -9,24 +9,27 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 <body>
-    <h1>Menu List</h1>
-    <a href="{% url 'resturant:add_menu'%}">Add Menu</a>
+    <a href="{% url 'resturant:add_order'%}"> Add Order</a>
+    <h1>Order List</h1>
     <div class="container">
         <table class="table table-bordered">
             <thead class="thead-dark">
                 <tr>
-                    <th>Name</th>
-                    <th>Price</th>
+                    <th>Food Item</th>
+                    <th>Table  Name</th>
+                    <th>Created_at</th>
+                    <th>Quantity</th>
                     <th>Actions</th> <!-- Add column for actions -->
                 </tr>
             </thead>
             <tbody>
                 {% for menu in list %}
                 <tr>
-                    <td>{{ menu.name }}</td>
-                    <td>{{ menu.price }}</td>
+                    <td>{{ menu.food_item.name }}</td>
+                    <td>{{ menu.table_name }}</td>
+                    <td>{{ menu.created_at }}</td>
+                    <td>{{ menu.quantity }}</td>
                     <td>
-                        <a href="{% url 'resturant:add_recipe' menu.id %}">Add Recipe</a>
                         <!-- Edit icon -->
                         <a href="{% url 'resturant:edit_menu' menu.id %}"><i class="fas fa-edit"></i></a>
                         <!-- Delete icon -->
