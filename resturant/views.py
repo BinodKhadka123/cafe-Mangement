@@ -1,7 +1,7 @@
 
 from django.db.models import F
 from django.shortcuts import render
-
+from django.contrib.auth.views import LoginView,LogoutView,PasswordResetView,PasswordChangeView
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import get_object_or_404, redirect, render
 from django.urls import reverse_lazy
@@ -10,18 +10,19 @@ from django.views.generic.edit import *
 from django.views.generic import ListView
 from resturant.forms import *
 from resturant.models import *
-from django.forms import BaseModelForm, inlineformset_factory
-from django.forms import modelformset_factory
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 
-class HomePage(View):
+class HomePage(LoginRequiredMixin, View):
+
     def get(self, request):
         return render(request, 'resturant/home_page.html')
-class AddMenu(CreateView):
+class AddMenu(LoginRequiredMixin,CreateView):
     model = Menu
     form_class=MenuForm
     template_name = "resturant/add_menu.html"
     success_url=reverse_lazy('resturant:home_page')
+    
 class EditMenu(UpdateView):
     model = Menu
     form_class = MenuForm 
@@ -139,5 +140,16 @@ class AddOrder(CreateView):
         
         # Redirect the user to a success page
         return render(self.request, 'resturant/calculation_ingredient.html',context) 
+class MyLogin(LoginView):
+    authentication_form=UserLogin
+    template_name="resturant/login.html"
+    success_url = reverse_lazy('home_page')
+class MyLogout(LogoutView):
+    template_name = "resturant/logout.html"
+class ResetPassword(PasswordResetView):
+    template_name="resturant/password_reset.html"
+class ChangePassword(PasswordChangeView):
+    template_name="resturant/pasword_change.html"
+    success_url = reverse_lazy('resturant:home_page')
     
     

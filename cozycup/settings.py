@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 
+import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -38,9 +39,15 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'resturant',
+    'customuser',
     'crispy_forms',
     "crispy_bootstrap4",
+   
+    "graphene_django"
 ]
+GRAPHENE = {
+    "SCHEMA": "django_root.schema.schema"
+}
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap4"
 CRISPY_TEMPLATE_PACK = "bootstrap4"
 
@@ -122,10 +129,13 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 STATICFILES_DIRS = [
-    BASE_DIR / "static",
-    
-]
-# Default primary key field type
+    os.path.join(BASE_DIR, 'resturant', 'static'),
+] 
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+# settings.py
+
+LOGIN_REDIRECT_URL = '/home/'
+LOGIN_URL='/login/'
+

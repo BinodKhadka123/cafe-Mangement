@@ -6,6 +6,9 @@ from django.views import *
 from .views import *
 from django.conf import settings
 from django.conf.urls.static import static
+from django.contrib.auth.views import LoginView
+from django.contrib.auth.decorators import login_required
+
 app_name='resturant'
 urlpatterns = [
     
@@ -21,7 +24,10 @@ urlpatterns = [
     path('add/order/', AddOrder.as_view(), name='add_order'),
        path('add-recipe-requirement/<int:menu_item_id>/',AddRecipe.as_view(),name='add_recipe'),
         path('recipe/list/',RecipeList.as_view(),name='recipe_list'),
-        #path('calculation/',calculate_ingredient_used,name="calculate"),
+        path('login/',MyLogin.as_view(),name="my_login"),
+        path('logout/', MyLogout.as_view(), name='logout'),
+         path('password/reset', PasswordResetView.as_view(), name='password_reset'),
+           path('password/change', ChangePassword.as_view(), name='password_change'),
       
         
     

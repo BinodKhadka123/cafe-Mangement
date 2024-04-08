@@ -19,7 +19,7 @@ class Ingredient(models.Model):
     available_qty = models.IntegerField()
     measurement_unit = models.CharField(max_length=20)
     def __str__(self):
-        return self.name
+        return f"{self.name} - {self.available_qty}"
 class RecipeRequirement(models.Model):
      menu_item = models.ForeignKey(Menu, on_delete=models.CASCADE, related_name='recipe')
      ingredient = models.ForeignKey(Ingredient, on_delete=models.CASCADE)
@@ -34,6 +34,7 @@ class OrderItem(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     def __str__(self):
         return f"{self.food_item.name} - {self.table_name}"
+
 
     
         

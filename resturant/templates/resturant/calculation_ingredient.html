@@ -1,2 +1,41 @@
 <h1>sucessfully added order</h1>
-<h1>{{total_price}}</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu List</title>
+    <!-- Include Font Awesome CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+    
+    <h1>Food Sold</h1>
+    <div class="container">
+        <table class="table table-bordered">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Food Name</th>
+                    <th>Quantity</th>
+                    <th>Price</th>
+                    <th>Total Price</th>
+                    
+                     
+                </tr>
+            </thead>
+            <tbody>
+                
+                <tr>
+                    <td>{{food_name}}</td>
+                    <td>{{qty}}</td>
+                    <td>{{price}}</td>
+                    <td>{{total_price}}</td>
+                    <td>
+                         </td>
+                </tr>
+                
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
